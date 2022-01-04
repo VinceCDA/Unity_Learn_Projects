@@ -291,12 +291,13 @@ public class PlayerInventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+#if UNITY_EDITOR
         //Test pour degats
         if (Input.GetKeyDown(KeyCode.L))
         {
             ApplyDamage(10);
         }
+#endif
         //Pour la barre de vie
         float percentageHp = ((currentHealth * 100) / maxHealth) / 100;
         hpImage.fillAmount = percentageHp;

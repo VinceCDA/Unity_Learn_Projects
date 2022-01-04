@@ -20,6 +20,7 @@ TagManager:
   - Item
   - ItemIcon
   - test
+  - Enemy
   layers:
   - Default
   - TransparentFX

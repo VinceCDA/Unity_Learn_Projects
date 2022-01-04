@@ -57,3 +57,31 @@ MonoBehaviour:
     itemAttributes:
     - attributeName: Armor
       attributeValue: 10
+  - itemName: Potion de Soin
+    itemID: 3
+    itemDesc: Ceci est une potion de soin.
+    itemIcon: {fileID: 21300000, guid: 6dc5762501dd2df4da399f6c16a85907, type: 3}
+    itemModel: {fileID: 8266036961422408433, guid: c367e0e105c556e4987ceb3ebbefc7ee, type: 3}
+    itemValue: 1
+    itemType: 2
+    itemWeight: 0
+    maxStack: 1
+    indexItemInList: 999
+    rarity: 52
+    itemAttributes:
+    - attributeName: Health
+      attributeValue: 10
+  - itemName: Potion de Mana
+    itemID: 4
+    itemDesc: Ceci est une potion de mana.
+    itemIcon: {fileID: 21300000, guid: 1af77a087230dec4d86d092b83297d08, type: 3}
+    itemModel: {fileID: 1717224287386792982, guid: 7949ad7ae063afd4cacf0e8984209613, type: 3}
+    itemValue: 1
+    itemType: 2
+    itemWeight: 0
+    maxStack: 1
+    indexItemInList: 999
+    rarity: 52
+    itemAttributes:
+    - attributeName: Mana
+      attributeValue: 10
