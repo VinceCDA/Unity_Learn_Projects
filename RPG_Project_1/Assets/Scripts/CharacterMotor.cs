@@ -24,8 +24,14 @@ public class CharacterMotor : MonoBehaviour
     public float attackCooldown;
     private bool isAttacking;
     private float currentCooldown;
-    public GameObject rayhit;
+    public GameObject rayHit;
     public float attackRange;
+
+    //Variables sort
+    public GameObject sortFoudreGameObject;
+    public GameObject rayHitSort;
+    public float sortFroudreCoutMana;
+    public float sortFroudreVitesse;
 
     public Vector3 jumpSpeed;
     CapsuleCollider playerCollider;
@@ -40,7 +46,8 @@ public class CharacterMotor : MonoBehaviour
         playerCollider = GetComponent<CapsuleCollider>();
         playerInventory = GetComponent<PlayerInventory>();
         playerRb = GetComponent<Rigidbody>();
-        rayhit = GameObject.Find("RayHit");
+        rayHit = GameObject.Find("RayHit");
+        rayHitSort = GameObject.Find("RayHitSpell");
     }
 
     // Update is called once per frame
@@ -97,6 +104,10 @@ public class CharacterMotor : MonoBehaviour
             {
                 Attack();
             }
+            if (Input.GetKeyDown(KeyCode.Mouse1))
+            {
+                LancerSort();
+            }
             if (isAttacking)
             {
                 currentCooldown -= Time.deltaTime;
@@ -130,9 +141,9 @@ public class CharacterMotor : MonoBehaviour
 
             RaycastHit hit;
 
-            if (Physics.Raycast(rayhit.transform.position,transform.TransformDirection(Vector3.forward),out hit,attackRange))
+            if (Physics.Raycast(rayHit.transform.position,transform.TransformDirection(Vector3.forward),out hit,attackRange))
             {
-                Debug.DrawLine(rayhit.transform.position, hit.point, Color.red);
+                Debug.DrawLine(rayHit.transform.position, hit.point, Color.red);
 
                 if (hit.transform.tag == "Enemy")
                 {
@@ -145,6 +156,20 @@ public class CharacterMotor : MonoBehaviour
         }
         
         
+        //animator.SetBool("Attack_1",true);
+    }
+    public void LancerSort()
+    {
+        if (!isAttacking && playerInventory.currentMana >= sortFroudreCoutMana)
+        {
+            animator.SetTrigger("Attack");
+            GameObject sort = Instantiate(sortFoudreGameObject, rayHitSort.transform.position, transform.rotation);
+            sort.GetComponent<Rigidbody>().AddForce(transform.forward * sortFroudreVitesse);
+            playerInventory.currentMana -= sortFroudreCoutMana;
+            isAttacking = true;
+        }
+
+
         //animator.SetBool("Attack_1",true);
     }
 }
