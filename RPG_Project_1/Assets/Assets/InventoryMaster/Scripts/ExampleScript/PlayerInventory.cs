@@ -20,8 +20,8 @@ public class PlayerInventory : MonoBehaviour
     Image hpImage;
     Image manaImage;
 
-    float maxHealth = 100;
-    float maxMana = 100;
+    public float maxHealth = 100;
+    public float maxMana = 100;
     float maxDamage = 0;
     float maxArmor = 0;
 
@@ -30,10 +30,19 @@ public class PlayerInventory : MonoBehaviour
     public float currentDamage = 0;
     public float currentArmor = 0;
 
+    //Section Experience
+    public Image barreExperience;
+    public Text niveauJoueurText;
+    public int niveauJoueur = 1;
+    public float experienceActuelle = 0;
+    public float experienceMax = 100;
+    public float experienceRatio;
+
     int normalSize = 3;
 
     public CharacterMotor characterMotor;
     public Animator animator;
+    public PlayerSkills playerSkills;
     public void OnEnable()
     {
         Inventory.ItemEquip += OnBackpack;
@@ -158,7 +167,9 @@ public class PlayerInventory : MonoBehaviour
     {
         hpImage = GameObject.Find("CurrentHp").GetComponent<Image>();
         manaImage = GameObject.Find("CurrentMana").GetComponent<Image>();
-
+        barreExperience = GameObject.Find("CurrentExp").GetComponent<Image>();
+        niveauJoueurText = GameObject.Find("TextLevel").GetComponent<Text>();
+        playerSkills = gameObject.GetComponent<PlayerSkills>();
         if (inputManagerDatabase == null)
             inputManagerDatabase = (InputManager)Resources.Load("InputManager");
 
@@ -297,14 +308,40 @@ public class PlayerInventory : MonoBehaviour
         {
             ApplyDamage(10);
         }
+        //Test pour experience
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            experienceActuelle += 50;
+        }
 #endif
         //Pour la barre de vie
         float percentageHp = ((currentHealth * 100) / maxHealth) / 100;
         hpImage.fillAmount = percentageHp;
 
+        //empecher la vie de depasser le max
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
         //Pour la barre de mana
         float percentageMana = ((currentMana * 100) / maxMana) / 100;
         manaImage.fillAmount = percentageMana;
+
+        //Pour la barre exp
+        float percentageExp = ((experienceActuelle * 100) / experienceMax) / 100;
+        barreExperience.fillAmount = percentageExp;
+
+
+        //Si assez Exp
+        if (experienceActuelle >= experienceMax)
+        {
+            float resteExp = experienceActuelle - experienceMax;
+            niveauJoueur ++;
+            playerSkills.pointsDisponible ++;
+            niveauJoueurText.text = "Player Level : " + niveauJoueur;
+            experienceActuelle = 0 + resteExp;
+            experienceMax = experienceMax * experienceRatio;
+        }
         if (Input.GetKeyDown(inputManagerDatabase.CharacterSystemKeyCode))
         {
             if (!characterSystem.activeSelf)

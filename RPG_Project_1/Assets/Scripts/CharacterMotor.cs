@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterMotor : MonoBehaviour
 {
@@ -28,10 +29,28 @@ public class CharacterMotor : MonoBehaviour
     public float attackRange;
 
     //Variables sort
+    [Header("Paramètre sort")]
+    public int sortCourant = 1;
+    public int sortTotal;
+    private GameObject rayHitSort;
+    private GameObject spellHolderImage;
+    
+    //Sort Foudre
+    [Header("Paramètre sort Foudre")]
     public GameObject sortFoudreGameObject;
-    public GameObject rayHitSort;
     public float sortFroudreCoutMana;
     public float sortFroudreVitesse;
+    public int sortFoudreID;
+    public Sprite sortFoudreImage;
+
+    //Sort Soin
+    [Header("Paramètre sort Soin")]
+    public GameObject sortSoinGameObject;
+    public float sortSoinCoutMana;
+    public float sortSoinMontant;
+    public int sortSoinID;
+    public Sprite sortSoinImage;
+
 
     public Vector3 jumpSpeed;
     CapsuleCollider playerCollider;
@@ -48,6 +67,7 @@ public class CharacterMotor : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         rayHit = GameObject.Find("RayHit");
         rayHitSort = GameObject.Find("RayHitSpell");
+        spellHolderImage = GameObject.Find("SpellHolderImage");
     }
 
     // Update is called once per frame
@@ -108,6 +128,7 @@ public class CharacterMotor : MonoBehaviour
             {
                 LancerSort();
             }
+            //Systeme cooldown
             if (isAttacking)
             {
                 currentCooldown -= Time.deltaTime;
@@ -116,6 +137,31 @@ public class CharacterMotor : MonoBehaviour
             {
                 currentCooldown = attackCooldown;
                 isAttacking = false;
+            }
+            //Changement sort avec molette down
+            if (Input.GetAxis("Mouse ScrollWheel") < 0)
+            {
+                if (sortCourant <= sortTotal && sortCourant !=1)
+                {
+                    sortCourant--;
+                }
+            }
+            //Changement sort avec molette down
+            if (Input.GetAxis("Mouse ScrollWheel") > 0)
+            {
+                if (sortCourant >= 0 && sortCourant != sortTotal)
+                {
+                    sortCourant++;
+                }
+            }
+            //Changement image suivant sort selectionner
+            if (sortCourant == sortFoudreID)
+            {
+                spellHolderImage.GetComponent<Image>().sprite = sortFoudreImage;
+            }
+            if (sortCourant == sortSoinID)
+            {
+                spellHolderImage.GetComponent<Image>().sprite = sortSoinImage;
             }
         }
         
@@ -160,12 +206,22 @@ public class CharacterMotor : MonoBehaviour
     }
     public void LancerSort()
     {
-        if (!isAttacking && playerInventory.currentMana >= sortFroudreCoutMana)
+        //Sort de Foudre
+        if (sortCourant == sortFoudreID && !isAttacking && playerInventory.currentMana >= sortFroudreCoutMana)
         {
             animator.SetTrigger("Attack");
             GameObject sort = Instantiate(sortFoudreGameObject, rayHitSort.transform.position, transform.rotation);
             sort.GetComponent<Rigidbody>().AddForce(transform.forward * sortFroudreVitesse);
             playerInventory.currentMana -= sortFroudreCoutMana;
+            isAttacking = true;
+        }
+        //Sort de Soin
+        if (sortCourant == sortSoinID && !isAttacking && playerInventory.currentMana >= sortFroudreCoutMana && playerInventory.currentHealth < playerInventory.maxHealth)
+        {
+            animator.SetTrigger("Attack");
+            Instantiate(sortSoinGameObject, rayHitSort.transform.position, transform.rotation);
+            playerInventory.currentMana -= sortSoinCoutMana;
+            playerInventory.currentHealth += sortSoinMontant;
             isAttacking = true;
         }
 
