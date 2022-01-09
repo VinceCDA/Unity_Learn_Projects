@@ -22,6 +22,8 @@ public class PlayerInventory : MonoBehaviour
 
     public float maxHealth = 100;
     public float maxMana = 100;
+    public int goldCoins;
+    Text goldCoinsText;
     float maxDamage = 0;
     float maxArmor = 0;
 
@@ -169,6 +171,7 @@ public class PlayerInventory : MonoBehaviour
         manaImage = GameObject.Find("CurrentMana").GetComponent<Image>();
         barreExperience = GameObject.Find("CurrentExp").GetComponent<Image>();
         niveauJoueurText = GameObject.Find("TextLevel").GetComponent<Text>();
+        goldCoinsText = GameObject.Find("GoldAmount").GetComponent<Text>();
         playerSkills = gameObject.GetComponent<PlayerSkills>();
         if (inputManagerDatabase == null)
             inputManagerDatabase = (InputManager)Resources.Load("InputManager");
@@ -317,7 +320,7 @@ public class PlayerInventory : MonoBehaviour
         //Pour la barre de vie
         float percentageHp = ((currentHealth * 100) / maxHealth) / 100;
         hpImage.fillAmount = percentageHp;
-
+        goldCoinsText.text = "Or : " + goldCoins;
         //empecher la vie de depasser le max
         if (currentHealth > maxHealth)
         {
