@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
+    CharacterMotor characterMotor;
     public Inventory inventory;
     public PlayerInventory playerInventory;
     public GameObject shopPanel;
@@ -32,6 +33,7 @@ public class Shop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        characterMotor = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMotor>();
         shopPanel.SetActive(false);
     }
 
@@ -103,7 +105,9 @@ public class Shop : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            characterMotor.isInShop = true;
             PrepareShop();
+
         }
     }
     private void OnTriggerExit(Collider other)
@@ -111,6 +115,7 @@ public class Shop : MonoBehaviour
         if (other.tag == "Player")
         {
             ExitShop();
+            characterMotor.isInShop = false;
             shopPanel.SetActive(false);
         }
     }

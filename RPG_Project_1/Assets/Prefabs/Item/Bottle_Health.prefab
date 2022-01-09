@@ -4964,7 +4964,7 @@ MonoBehaviour:
     itemDesc: 
     itemIcon: {fileID: 0}
     itemModel: {fileID: 0}
-    itemValue: 1
+    itemValue: 2
     itemType: 0
     itemWeight: 0
     maxStack: 1

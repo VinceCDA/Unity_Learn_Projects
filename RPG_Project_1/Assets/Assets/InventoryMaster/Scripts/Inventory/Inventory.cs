@@ -614,7 +614,7 @@ public class Inventory : MonoBehaviour
                 if (itemOnObject.item.itemValue <= itemOnObject.item.maxStack && value <= itemOnObject.item.maxStack)
                     itemOnObject.item.itemValue = value;
                 else
-                    itemOnObject.item.itemValue = 1;
+                    //itemOnObject.item.itemValue = 1;
                 item.transform.SetParent(SlotContainer.transform.GetChild(i));
                 item.GetComponent<RectTransform>().localPosition = Vector3.zero;
                 item.transform.GetChild(0).GetComponent<Image>().sprite = itemOnObject.item.itemIcon;

@@ -56,7 +56,7 @@ public class CharacterMotor : MonoBehaviour
     CapsuleCollider playerCollider;
 
     public bool isOnGround;
-
+    public bool isInShop;
     public bool isDead = false;
     // Start is called before the first frame update
     void Start()

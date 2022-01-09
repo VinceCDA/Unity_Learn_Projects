@@ -34,7 +34,7 @@ MonoBehaviour:
     itemDesc: "Ceci est une \xE9p\xE9e."
     itemIcon: {fileID: 21300000, guid: 439486a4aa566984eba71b527d0ceaf7, type: 3}
     itemModel: {fileID: 1662113597192606066, guid: 40c49b7e5cc2a19419bc51ec45122df5, type: 3}
-    itemValue: 1
+    itemValue: 5
     itemType: 1
     itemWeight: 0
     maxStack: 1
@@ -48,7 +48,7 @@ MonoBehaviour:
     itemDesc: Ceci est un casque.
     itemIcon: {fileID: 21300000, guid: 52b1e3fc60614e446b61e1c6bb148f57, type: 3}
     itemModel: {fileID: 3306398812557486024, guid: 80cc99a9455085a4ba840417ceb953ef, type: 3}
-    itemValue: 1
+    itemValue: 3
     itemType: 4
     itemWeight: 0
     maxStack: 1
@@ -62,7 +62,7 @@ MonoBehaviour:
     itemDesc: Ceci est une potion de soin.
     itemIcon: {fileID: 21300000, guid: 6dc5762501dd2df4da399f6c16a85907, type: 3}
     itemModel: {fileID: 8266036961422408433, guid: c367e0e105c556e4987ceb3ebbefc7ee, type: 3}
-    itemValue: 1
+    itemValue: 2
     itemType: 2
     itemWeight: 0
     maxStack: 1
@@ -76,7 +76,7 @@ MonoBehaviour:
     itemDesc: Ceci est une potion de mana.
     itemIcon: {fileID: 21300000, guid: 1af77a087230dec4d86d092b83297d08, type: 3}
     itemModel: {fileID: 1717224287386792982, guid: 7949ad7ae063afd4cacf0e8984209613, type: 3}
-    itemValue: 1
+    itemValue: 2
     itemType: 2
     itemWeight: 0
     maxStack: 1
