@@ -1,6 +1,5 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class ItemDataBaseList : ScriptableObject
 {             //The scriptableObject where the Item getting stored which you create(ItemDatabase)

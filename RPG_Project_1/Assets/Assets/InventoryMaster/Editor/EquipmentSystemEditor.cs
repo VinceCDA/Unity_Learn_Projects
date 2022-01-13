@@ -1,8 +1,5 @@
-﻿using UnityEngine;
-using System.Collections;
-using UnityEditor;
-using System.Collections.Generic;
-using System.Linq;
+﻿using UnityEditor;
+using UnityEngine;
 
 [CustomEditor(typeof(EquipmentSystem))]
 public class EquipmentSystemEditor : Editor

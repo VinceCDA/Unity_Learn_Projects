@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class CharacterMotor : MonoBehaviour
@@ -34,7 +32,7 @@ public class CharacterMotor : MonoBehaviour
     public int sortTotal;
     private GameObject rayHitSort;
     private GameObject spellHolderImage;
-    
+
     //Sort Foudre
     [Header("Paramètre sort Foudre")]
     public GameObject sortFoudreGameObject;
@@ -141,7 +139,7 @@ public class CharacterMotor : MonoBehaviour
             //Changement sort avec molette down
             if (Input.GetAxis("Mouse ScrollWheel") < 0)
             {
-                if (sortCourant <= sortTotal && sortCourant !=1)
+                if (sortCourant <= sortTotal && sortCourant != 1)
                 {
                     sortCourant--;
                 }
@@ -164,7 +162,7 @@ public class CharacterMotor : MonoBehaviour
                 spellHolderImage.GetComponent<Image>().sprite = sortSoinImage;
             }
         }
-        
+
     }
     bool isGrounded()
     {
@@ -175,7 +173,7 @@ public class CharacterMotor : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isOnGround = true;
-            
+
         }
 
     }
@@ -187,7 +185,7 @@ public class CharacterMotor : MonoBehaviour
 
             RaycastHit hit;
 
-            if (Physics.Raycast(rayHit.transform.position,transform.TransformDirection(Vector3.forward),out hit,attackRange))
+            if (Physics.Raycast(rayHit.transform.position, transform.TransformDirection(Vector3.forward), out hit, attackRange))
             {
                 Debug.DrawLine(rayHit.transform.position, hit.point, Color.red);
 
@@ -200,8 +198,8 @@ public class CharacterMotor : MonoBehaviour
 
             isAttacking = true;
         }
-        
-        
+
+
         //animator.SetBool("Attack_1",true);
     }
     public void LancerSort()

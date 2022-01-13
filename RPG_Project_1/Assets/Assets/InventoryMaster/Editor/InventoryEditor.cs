@@ -1,8 +1,5 @@
-﻿using UnityEngine;
-using System.Collections;
-using UnityEditor;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
+﻿using UnityEditor;
+using UnityEngine;
 
 [CustomEditor(typeof(Inventory))]
 public class InventoryEditor : Editor
@@ -217,7 +214,7 @@ public class InventoryEditor : Editor
             itemValue = EditorGUILayout.IntField("", itemValue, GUILayout.Width(40));
             GUI.color = Color.green;                                                                                            //set the color of all following guielements to green
             if (GUILayout.Button("Add Item"))                                                                                   //creating button with name "AddItem"
-            {                
+            {
                 inv.addItemToInventory(itemID, itemValue);                                                                      //and set the settings for possible stackedItems
                 inv.stackableSettings();
             }

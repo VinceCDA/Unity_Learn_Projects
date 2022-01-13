@@ -17,7 +17,7 @@ namespace Retro.ThirdPersonCharacter
         private Vector3 moveDirection = Vector3.zero;
 
         public float gravity = 10;
-        public float jumpSpeed = 4; 
+        public float jumpSpeed = 4;
 
         public float MaxSpeed = 10;
         private float DecelerationOnStop = 0.00f;
@@ -35,7 +35,7 @@ namespace Retro.ThirdPersonCharacter
         {
             if (_animator == null) return;
 
-            if(_combat.AttackInProgress)
+            if (_combat.AttackInProgress)
             {
                 StopMovementOnAttack();
             }

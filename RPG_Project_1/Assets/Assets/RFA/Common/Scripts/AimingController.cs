@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using NaughtyCharacter;
+﻿using NaughtyCharacter;
+using UnityEngine;
 
 namespace Retro.ThirdPersonCharacter
 {
@@ -10,11 +10,11 @@ namespace Retro.ThirdPersonCharacter
         private Aiming _aiming;
         private PlayerInput _playerInput;
 
-        #pragma warning disable 0649
+#pragma warning disable 0649
         [SerializeField] private bool _isAiming;
         [SerializeField] private SpringArm _springArm;
-        
-        #pragma warning restore 0649
+
+#pragma warning restore 0649
 
         [Header("Settings")]
         [SerializeField] private float _aimCameraDistance = 3;
@@ -30,7 +30,7 @@ namespace Retro.ThirdPersonCharacter
 
         private void Update()
         {
-            if(_playerInput.ChangeCameraModeInput) SwitchAim();
+            if (_playerInput.ChangeCameraModeInput) SwitchAim();
         }
 
         private void SwitchAim()
@@ -41,7 +41,7 @@ namespace Retro.ThirdPersonCharacter
 
         private void OnStateChanged()
         {
-            if(_isAiming)
+            if (_isAiming)
             {
                 _springArm.TargetLength = _aimCameraDistance;
                 _aiming.enabled = true;

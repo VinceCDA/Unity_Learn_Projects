@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif

@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Linq;
-using System.IO;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using System.IO;
+using System.Linq;
 using UnityEditor;
+using UnityEngine;
 
 namespace Polytope
 {
@@ -49,7 +49,7 @@ namespace Polytope
 
         private void Preview()
         {
-            if(preview.boolValue)
+            if (preview.boolValue)
             {
                 if (EditorApplication.timeSinceStartup > time.floatValue)
                 {
@@ -58,7 +58,7 @@ namespace Polytope
                     MeshesRandom();
                 }
             }
-        }    
+        }
 
         private void ShaderProperty_C(string name, string label)
         {
@@ -281,7 +281,7 @@ namespace Polytope
 
             int index = EditorGUILayout.Popup("Material", idx.intValue, materialNames.ToArray());
             if (index < 0) { index = 0; }
-            if(idx.intValue != index)
+            if (idx.intValue != index)
             {
                 idx.intValue = index;
                 material.FindPropertyRelative("instance").objectReferenceValue = new Material(list.GetArrayElementAtIndex(index).objectReferenceValue as Material);
@@ -882,7 +882,7 @@ namespace Polytope
             style.normal.textColor = Color.green;
             style.hover.textColor = Color.green;
 
-            if (loaded != null && loaded.boolValue && !preview.boolValue &&GUILayout.Button("Preview"))
+            if (loaded != null && loaded.boolValue && !preview.boolValue && GUILayout.Button("Preview"))
             {
                 preview.boolValue = true;
             }
@@ -938,7 +938,7 @@ namespace Polytope
                 mat = assets.GetArrayElementAtIndex(index.intValue).objectReferenceValue as Material;
             }
 
-            
+
             DestroyImmediate(instance.GetComponent<PT_Create_Prefab>());
             foreach (SkinnedMeshRenderer smr in smrs)
             {
@@ -1072,7 +1072,7 @@ namespace Polytope
 
             EditorGUILayout.Space();
             EditorGUILayout.LabelField("Shader", EditorStyles.boldLabel);
-            
+
             // User may delete a material
             try
             {

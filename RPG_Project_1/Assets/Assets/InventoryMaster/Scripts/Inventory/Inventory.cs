@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -615,7 +614,7 @@ public class Inventory : MonoBehaviour
                     itemOnObject.item.itemValue = value;
                 else
                     //itemOnObject.item.itemValue = 1;
-                item.transform.SetParent(SlotContainer.transform.GetChild(i));
+                    item.transform.SetParent(SlotContainer.transform.GetChild(i));
                 item.GetComponent<RectTransform>().localPosition = Vector3.zero;
                 item.transform.GetChild(0).GetComponent<Image>().sprite = itemOnObject.item.itemIcon;
                 itemOnObject.item.indexItemInList = ItemsInInventory.Count - 1;
@@ -807,7 +806,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    
+
 
     public void deleteItemFromInventory(Item item)
     {

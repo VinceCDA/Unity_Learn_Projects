@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using NaughtyCharacter;
 
 namespace Retro.ThirdPersonCharacter
 {
@@ -13,7 +12,7 @@ namespace Retro.ThirdPersonCharacter
         private Animator _animator;
         private PlayerInput _playerInput;
 
-        public bool AttackInProgress {get; private set;} = false;
+        public bool AttackInProgress { get; private set; } = false;
 
         private void Start()
         {
@@ -23,7 +22,7 @@ namespace Retro.ThirdPersonCharacter
 
         private void Update()
         {
-            if(_playerInput.AttackInput && !AttackInProgress)
+            if (_playerInput.AttackInput && !AttackInProgress)
             {
                 Attack();
             }

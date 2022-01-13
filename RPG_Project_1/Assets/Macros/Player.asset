@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1893448595, guid: a040fb66244a7f54289914d98ea4ef7d, type: 3}
+  m_Name: Player
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"graph":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":-14.0,"y":3.0},"zoom":1.0,"elements":[{"coroutine":false,"defaultValues":{},"position":{"x":-204.0,"y":-144.0},"guid":"5cf3c06c-c832-40c1-87e4-7d421848fa59","$version":"A","$type":"Bolt.Start"},{"coroutine":false,"defaultValues":{},"position":{"x":-204.0,"y":60.0},"guid":"e43aa6fc-ff45-435c-9f74-0e3d103a75fb","$version":"A","$type":"Bolt.Update"},{"chainable":false,"member":{"name":"Attack","parameterTypes":[],"targetType":"CharacterMotor","targetTypeName":"CharacterMotor","$version":"A"},"defaultValues":{"target":null},"position":{"x":15.0,"y":-171.0},"guid":"f94ae515-b59d-46e8-9bd9-9dc7123f2f54","$version":"A","$type":"Bolt.InvokeMember"},{"chainable":false,"member":{"name":"ApplyDamage","parameterTypes":["System.Single"],"targetType":"PlayerInventory","targetTypeName":"PlayerInventory","$version":"A"},"defaultValues":{"target":null,"%damage":{"$content":0.0,"$type":"System.Single"}},"position":{"x":21.0,"y":43.0},"guid":"2ce37c97-af09-4841-aaea-07433df947a7","$version":"A","$type":"Bolt.InvokeMember"}],"$version":"A"}}'
+    _objectReferences: []

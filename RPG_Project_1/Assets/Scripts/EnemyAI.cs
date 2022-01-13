@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -29,7 +27,7 @@ public class EnemyAI : MonoBehaviour
     public float ennemiPointDeVie;
     //Mort
     public bool estMort;
-    
+
     //Agent de navigation
     private UnityEngine.AI.NavMeshAgent agent;
     // Start is called before the first frame update
@@ -97,7 +95,7 @@ public class EnemyAI : MonoBehaviour
     //Idle
     void Idle()
     {
-        animator.SetBool("isMoving",false);
+        animator.SetBool("isMoving", false);
     }
     //Degats recus
     public void AppliquerDegat(float degatEntrant)
@@ -120,8 +118,8 @@ public class EnemyAI : MonoBehaviour
         estMort = true;
         gameObject.GetComponent<BoxCollider>().enabled = false;
         animator.SetBool("isMoving", false);
-        animator.SetBool("isDead",true);
+        animator.SetBool("isDead", true);
         GameObject drop = loots[Random.Range(0, loots.Length)];
-        Instantiate(drop,transform.position,transform.rotation);
+        Instantiate(drop, transform.position, transform.rotation);
     }
 }

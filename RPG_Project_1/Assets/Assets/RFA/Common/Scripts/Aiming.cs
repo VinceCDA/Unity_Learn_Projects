@@ -9,7 +9,7 @@ namespace Retro.ThirdPersonCharacter
 
         private void Start()
         {
-            mainCamera = Camera.main;   
+            mainCamera = Camera.main;
         }
 
         private void LateUpdate()

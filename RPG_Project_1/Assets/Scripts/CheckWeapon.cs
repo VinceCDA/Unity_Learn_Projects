@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,7 +14,7 @@ public class CheckWeapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -27,11 +26,11 @@ public class CheckWeapon : MonoBehaviour
         }
         else
         {
-            idArme=0;
+            idArme = 0;
             for (int i = 0; i < listeArmes.Count; i++)
             {
 
-                    listeArmes[i].SetActive(false);
+                listeArmes[i].SetActive(false);
 
             }
         }
@@ -47,7 +46,7 @@ public class CheckWeapon : MonoBehaviour
         {
             for (int i = 0; i < listeArmes.Count; i++)
             {
-                if (i == 0 )
+                if (i == 0)
                 {
                     listeArmes[i].SetActive(true);
                 }

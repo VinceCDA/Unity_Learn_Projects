@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -43,7 +41,7 @@ public class PlayerSkills : MonoBehaviour
         {
             inventory.maxHealth += amountHP;
             inventory.currentHealth += amountHP;
-            pointsDisponible --;
+            pointsDisponible--;
         }
     }
     public void AddManaMax(float amountMana)
@@ -52,7 +50,7 @@ public class PlayerSkills : MonoBehaviour
         {
             inventory.maxMana += amountMana;
             inventory.currentMana += amountMana;
-            pointsDisponible --;
+            pointsDisponible--;
         }
     }
 }

@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class SellItem : MonoBehaviour
@@ -19,7 +16,7 @@ public class SellItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public void SellItemOnShop()
     {
@@ -29,7 +26,7 @@ public class SellItem : MonoBehaviour
             playerInventory.goldCoins += gameObject.GetComponent<ItemOnObject>().item.itemValue;
             tooltip.deactivateTooltip();
             Destroy(gameObject);
-            
+
         }
     }
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Assembly-CSharp</name>
+    </assembly>
+    <members>
+        <member name="T:InstanceExample">
+            ------------------------------
+            Creating instance of particles
+            ------------------------------
+        </member>
+        <member name="F:InstanceExample.Instance">
+            ------------------------------
+            Singleton
+            ------------------------------
+        </member>
+        <member name="M:InstanceExample.Explosion(UnityEngine.Vector3)">
+            -----------------------------------------
+            Create an explosion at the given location
+            -----------------------------------------
+        </member>
+        <member name="M:InstanceExample.instantiate(UnityEngine.ParticleSystem,UnityEngine.Vector3)">
+            -----------------------------------------
+            Instantiate a Particle system from prefab
+            -----------------------------------------
+        </member>
+    </members>
+</doc>

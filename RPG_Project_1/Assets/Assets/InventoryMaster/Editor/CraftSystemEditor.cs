@@ -1,10 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
-using UnityEditor;
-using System.Collections.Generic;
-using System.Linq;
+﻿using UnityEditor;
+using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 [CustomEditor(typeof(CraftSystem))]
 public class CraftSystemEditor : Editor

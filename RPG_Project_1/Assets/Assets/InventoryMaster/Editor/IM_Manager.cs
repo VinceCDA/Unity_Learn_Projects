@@ -1,9 +1,7 @@
-﻿using System.IO;
-using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
+﻿using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
+using UnityEngine;
 
 
 public class IM_Manager : EditorWindow

@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 public class PlayerInventory : MonoBehaviour
 {
@@ -339,8 +337,8 @@ public class PlayerInventory : MonoBehaviour
         if (experienceActuelle >= experienceMax)
         {
             float resteExp = experienceActuelle - experienceMax;
-            niveauJoueur ++;
-            playerSkills.pointsDisponible ++;
+            niveauJoueur++;
+            playerSkills.pointsDisponible++;
             niveauJoueurText.text = "Player Level : " + niveauJoueur;
             experienceActuelle = 0 + resteExp;
             experienceMax = experienceMax * experienceRatio;

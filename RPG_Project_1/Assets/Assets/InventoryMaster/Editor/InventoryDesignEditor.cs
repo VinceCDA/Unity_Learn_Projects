@@ -1,8 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
-using UnityEditor;
+﻿using UnityEditor;
+using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 [CustomEditor(typeof(InventoryDesign))]
 public class InventoryDesignEditor : Editor
@@ -22,7 +20,7 @@ public class InventoryDesignEditor : Editor
     SerializedProperty inventoryTitlePosX;
     SerializedProperty inventoryTitlePosY;
     SerializedProperty panelSizeX;
-    SerializedProperty panelSizeY;    
+    SerializedProperty panelSizeY;
     SerializedProperty inventoryCrossPosX;
     SerializedProperty inventoryCrossPosY;
     SerializedProperty showInventoryCross;
@@ -41,7 +39,7 @@ public class InventoryDesignEditor : Editor
         inventoryTitlePosY = serializedObject.FindProperty("inventoryTitlePosY");
         panelSizeX = serializedObject.FindProperty("panelSizeX");
         panelSizeY = serializedObject.FindProperty("panelSizeY");
-        inventoryTitle = serializedObject.FindProperty("inventoryTitle");        
+        inventoryTitle = serializedObject.FindProperty("inventoryTitle");
         inventoryCrossPosX = serializedObject.FindProperty("inventoryCrossPosX");
         inventoryCrossPosY = serializedObject.FindProperty("inventoryCrossPosY");
         showInventoryCross = serializedObject.FindProperty("showInventoryCross");
@@ -50,14 +48,14 @@ public class InventoryDesignEditor : Editor
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
-        if(invDesign.GetComponent<Hotbar>() != null)
+        if (invDesign.GetComponent<Hotbar>() != null)
             invDesign.setVariables();
 
-        GUILayout.BeginVertical("Box");        
+        GUILayout.BeginVertical("Box");
         EditorGUI.indentLevel++;
         inventoryDesignFoldOut = EditorGUILayout.Foldout(inventoryDesignFoldOut, "Inventory Design");
         if (inventoryDesignFoldOut)
-        {               
+        {
             EditorGUI.BeginChangeCheck();
             inventoryTitle.stringValue = EditorGUILayout.TextField("Title", inventoryTitle.stringValue);
             EditorGUI.indentLevel++;
@@ -147,7 +145,7 @@ public class InventoryDesignEditor : Editor
                     {
                         invDesign.changeCrossSettings();
                     }
-                    
+
                     showinventoryCrossDesign = EditorGUILayout.Foldout(showinventoryCrossDesign, "Design");
                     if (showinventoryCrossDesign)
                     {
@@ -163,14 +161,14 @@ public class InventoryDesignEditor : Editor
                         else if (imageTypeIndexForInventory2 == 3) { invDesign.inventoryCrossImage.type = Image.Type.Tiled; imageTypeIndexForInventory2 = 3; }
                         invDesign.inventoryCrossImage.fillCenter = EditorGUILayout.Toggle("Fill Center", invDesign.inventoryCrossImage.fillCenter);
                         EditorGUI.indentLevel--;
-                    }                    
+                    }
                     EditorGUI.indentLevel--;
                 }
                 else
                     invDesign.changeCrossSettings();
                 GUILayout.EndVertical();
             }
-            
+
 
             EditorGUI.indentLevel--;
         }
@@ -204,7 +202,7 @@ public class InventoryDesignEditor : Editor
                 }
             }
             catch { }
-        }        
+        }
         EditorGUI.indentLevel--;
         serializedObject.ApplyModifiedProperties();
         SceneView.RepaintAll();

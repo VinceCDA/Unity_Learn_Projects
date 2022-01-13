@@ -1,8 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using System;
 
 public class ConsumeItem : MonoBehaviour, IPointerDownHandler
 {
@@ -68,9 +65,9 @@ public class ConsumeItem : MonoBehaviour, IPointerDownHandler
                                 {
                                     stop = true;
                                     if (eS.transform.GetChild(1).GetChild(i).parent.parent.GetComponent<EquipmentSystem>() != null && this.gameObject.transform.parent.parent.parent.GetComponent<EquipmentSystem>() != null) { }
-                                    else                                    
+                                    else
                                         inventory.EquiptItem(item);
-                                    
+
                                     this.gameObject.transform.SetParent(eS.transform.GetChild(1).GetChild(i));
                                     this.gameObject.GetComponent<RectTransform>().localPosition = Vector3.zero;
                                     eS.gameObject.GetComponent<Inventory>().updateItemList();
@@ -123,9 +120,9 @@ public class ConsumeItem : MonoBehaviour, IPointerDownHandler
 
                                             this.gameObject.transform.SetParent(eS.transform.GetChild(1).GetChild(i));
                                             this.gameObject.GetComponent<RectTransform>().localPosition = Vector3.zero;
-                                        }                                        
-                                        
-                                        gearable = true;                                        
+                                        }
+
+                                        gearable = true;
                                         if (duplication != null)
                                             Destroy(duplication.gameObject);
                                         eS.gameObject.GetComponent<Inventory>().updateItemList();
@@ -157,7 +154,7 @@ public class ConsumeItem : MonoBehaviour, IPointerDownHandler
                             if (tooltip != null)
                                 tooltip.deactivateTooltip();
                             inventory.deleteItemFromInventory(item);
-                            Destroy(duplication.gameObject); 
+                            Destroy(duplication.gameObject);
                         }
                     }
                     if (item.itemValue <= 0)
@@ -165,16 +162,16 @@ public class ConsumeItem : MonoBehaviour, IPointerDownHandler
                         if (tooltip != null)
                             tooltip.deactivateTooltip();
                         inventory.deleteItemFromInventory(item);
-                        Destroy(this.gameObject);                        
+                        Destroy(this.gameObject);
                     }
 
                 }
-                
+
             }
-            
+
 
         }
-    }    
+    }
 
     public void consumeIt()
     {
@@ -190,12 +187,12 @@ public class ConsumeItem : MonoBehaviour, IPointerDownHandler
 
         Item itemFromDup = null;
         if (duplication != null)
-            itemFromDup = duplication.GetComponent<ItemOnObject>().item;       
+            itemFromDup = duplication.GetComponent<ItemOnObject>().item;
 
         bool stop = false;
         if (eS != null)
         {
-            
+
             for (int i = 0; i < eS.slotsInTotal; i++)
             {
                 if (itemTypeOfSlot[i].Equals(item.itemType))
@@ -261,7 +258,7 @@ public class ConsumeItem : MonoBehaviour, IPointerDownHandler
                                 Destroy(duplication.gameObject);
                             eS.gameObject.GetComponent<Inventory>().updateItemList();
                             inventory.OnUpdateItemList();
-                            break;                           
+                            break;
                         }
                     }
                 }
@@ -296,10 +293,10 @@ public class ConsumeItem : MonoBehaviour, IPointerDownHandler
                 if (tooltip != null)
                     tooltip.deactivateTooltip();
                 inventory.deleteItemFromInventory(item);
-                Destroy(this.gameObject); 
+                Destroy(this.gameObject);
             }
 
-        }        
+        }
     }
 
     public void createDuplication(GameObject Item)

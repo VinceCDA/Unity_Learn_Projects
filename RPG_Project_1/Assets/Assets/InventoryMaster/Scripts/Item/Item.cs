@@ -1,6 +1,5 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [System.Serializable]
 public class Item
@@ -14,13 +13,13 @@ public class Item
     public ItemType itemType;                                   //itemType of the Item
     public float itemWeight;                                    //itemWeight of the item
     public int maxStack = 1;
-    public int indexItemInList = 999;    
+    public int indexItemInList = 999;
     public int rarity;
 
     [SerializeField]
-    public List<ItemAttribute> itemAttributes = new List<ItemAttribute>();    
-    
-    public Item(){}
+    public List<ItemAttribute> itemAttributes = new List<ItemAttribute>();
+
+    public Item() { }
 
     public Item(string name, int id, string desc, Sprite icon, GameObject model, int maxStack, ItemType type, string sendmessagetext, List<ItemAttribute> itemAttributes)                 //function to create a instance of the Item
     {
@@ -36,10 +35,10 @@ public class Item
 
     public Item getCopy()
     {
-        return (Item)this.MemberwiseClone();        
-    }   
-    
-    
+        return (Item)this.MemberwiseClone();
+    }
+
+
 }
 
 

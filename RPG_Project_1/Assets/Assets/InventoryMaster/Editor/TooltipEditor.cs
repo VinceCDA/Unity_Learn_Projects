@@ -1,8 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
-using UnityEditor;
+﻿using UnityEditor;
+using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 [CustomEditor(typeof(Tooltip))]
 public class TooltipEditor : Editor
@@ -70,7 +68,7 @@ public class TooltipEditor : Editor
     {
         GUILayout.BeginVertical("Box");
         EditorGUI.BeginChangeCheck();
-        
+
         tooltipWidth.intValue = EditorGUILayout.IntSlider("Tooltip Width:", tooltipWidth.intValue, 0, 500);                                 //intslider for the tooltip width
         tooltipHeight.intValue = EditorGUILayout.IntSlider("Tooltip Height:", tooltipHeight.intValue, 0, 500);
 
@@ -101,7 +99,7 @@ public class TooltipEditor : Editor
             EditorGUI.indentLevel++;
             foldOutIcon = EditorGUILayout.Foldout(foldOutIcon, "Settings");
             if (foldOutIcon)
-            {                
+            {
                 EditorGUI.BeginChangeCheck();
                 EditorGUI.indentLevel++;
                 tooltipIconPosX.intValue = EditorGUILayout.IntSlider("Position X:", tooltipIconPosX.intValue, 0, tooltipWidth.intValue);

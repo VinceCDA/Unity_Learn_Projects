@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
@@ -40,7 +38,7 @@ public class Shop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     void PrepareShop()
     {
@@ -86,9 +84,9 @@ public class Shop : MonoBehaviour
                     Debug.Log("Pas assez d'argent");
                     break;
                 }
-                
+
             }
-            
+
         }
         if (freeSlots == 0 && transactionDone == false)
         {
